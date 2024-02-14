@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Policy</title>
+</head>
+<body>
+<table border="3px">
+    <thead>
+    <th>Policy Id</th>
+    <th>Holder Name</th>
+    <th>Address</th>
+    <th>Premium Amount</th>
+    <th>Status</th>
+    </thead>
+    <tbody>
+    <tr th:each="tempPolicy:${policy}">
+        <td th:text="${tempPolicy.getId()}"></td>
+        <td th:text="${tempPolicy.gethName()}"></td>
+        <td th:text="${tempPolicy.getAddress().getsName()+','+tempPolicy.getAddress().getCity()+','+tempPolicy.getAddress().getDistrict()+','+tempPolicy.getAddress().getState().getsCode()}"></td>
+        <td th:text="${tempPolicy.getPremium()}"></td>
+        <td th:text="${tempPolicy.getStatus()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium Form</title>
+</head>
+<body>
+<form th:action="@{/savePremium/{id}(id=${policy.getId()})}" method="post" th:object="${policy}">
+    <h3>Premium Amount:</h3>
+    <p th:name="premium" th:text="${rate}"></p>
+    <input type="submit">
+</form>
+</body>
+</html>

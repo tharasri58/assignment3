@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Policy Form</title>
+</head>
+<body>
+<form action="" th:action="@{/savePolicy}" th:object="${policy}" method="post"><br>
+    Policy Id : <input type = "text" th:placeholder="${policy.getId()}" name="pId" disabled><br>
+    Policy Holder Name : <input type = "text" th:field="*{hName}" required><br>
+    Street Name : <input type = "text" th:field="*{address.sName}" required><br>
+    City Name : <input type = "text" th:field="*{address.city}" required><br>
+    District Name : <input type = "text" th:field="*{address.district}" required><br>
+    Status : <input type="text" readonly th:text="${policy.getStatus()}" th:field="*{status}"><br>
+    <label for="state">Choose the state</label>
+        <select id = "state" name="state">
+            <option th:each="states:${defstate}" th:value="${states.id}" th:text="${states.sCode}"></option>
+        </select><br><br>
+    <input type="submit">
+</form>
+</body>
+</html>
